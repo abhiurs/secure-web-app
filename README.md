@@ -49,6 +49,9 @@ https://secure-web-app-djos.onrender.com
 - express-validator
 - dotenv
 
+### Deployment
+- Render
+
 ---
 
 ## Project Structure
@@ -57,7 +60,7 @@ https://secure-web-app-djos.onrender.com
 secure-web-app/
 │
 ├── models/
-│   └── user.js
+│   └── User.js
 │
 ├── routes/
 │   └── auth.js
@@ -70,10 +73,20 @@ secure-web-app/
 ├── public/
 │   └── style.css
 │
+├── screenshots/
+│   ├── signup.png
+│   ├── login.png
+│   ├── dashboard.png
+│   ├── mongodb-database.png
+│   ├── render-deployment.png
+│   └── local-server-running.png
+│
 ├── .env
+├── .gitignore
 ├── package.json
-├── server.js
-└── README.md
+├── package-lock.json
+├── README.md
+└── server.js
 ```
 
 ---
@@ -126,6 +139,30 @@ PORT=5000
 npm run dev
 ```
 
+---
+
+## Screenshots
+
+### Signup Page
+![Signup Page](./screenshots/signup.png)
+
+### Login Page
+![Login Page](./screenshots/login.png)
+
+### Dashboard
+![Dashboard](./screenshots/dashboard.png)
+
+### MongoDB Database
+![MongoDB Database](./screenshots/mongodb-database.png)
+
+### Render Deployment
+![Render Deployment](./screenshots/render-deployment.png)
+
+### Local Server Running
+![Local Server Running](./screenshots/local-server-running.png)
+
+---
+
 Open in browser:
 
 ```text
@@ -137,6 +174,9 @@ http://localhost:5000
 ## Deployment
 
 The application is deployed on Render and uses MongoDB Atlas cloud database.
+
+Live URL:
+https://secure-web-app-djos.onrender.com
 
 ---
 

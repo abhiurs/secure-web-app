@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Create Account</h2>
+
+    <% if (typeof error !== 'undefined') { %>
+
+    <p class="form-error"><%= error %></p>
+
+<% } %>
+
+    <form id="signupForm" method="POST" action="/signup">
+
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <input 
+            type="text"
+            name="username"
+            placeholder="Enter Username"
+            required
+        >
+
+        <input 
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter Email"
+            required
+        >
+
+        <small id="emailError" class="error"></small>
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Create Password"
+            required
+        >
+
+        <small id="passwordError" class="error"></small>
+
+        <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+            required
+        >
+
+        <small id="confirmError" class="error"></small>
+
+        <button type="submit">Sign Up</button>
+
+    </form>
+
+    <br>
+
+    <a href="/login">Already have an account? Login</a>
+
+</div>
+
+<script>
+
+document.getElementById("signupForm").addEventListener("submit", function(e) {
+
+    let valid = true;
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("passwordError").innerText = "";
+    document.getElementById("confirmError").innerText = "";
+
+    if (!email.includes("@")) {
+
+        document.getElementById("emailError").innerText =
+            "Please enter a valid email.";
+
+        valid = false;
+    }
+
+    if (password.length < 8) {
+
+        document.getElementById("passwordError").innerText =
+            "Password must be at least 8 characters.";
+
+        valid = false;
+    }
+
+    if (password !== confirmPassword) {
+
+        document.getElementById("confirmError").innerText =
+            "Passwords do not match.";
+
+        valid = false;
+    }
+
+    if (!valid) {
+        e.preventDefault();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
